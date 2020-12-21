@@ -7,6 +7,11 @@ include_directories(src)
 aux_source_directory(src SRC_FILES)
 aux_source_directory(. CWD_FILES)
 
+#for generate demo
+#add_definitions(-DGEN_DEMO)
+#add_definitions(-DGEN_SDS_DEMO)
+
+
 add_library(simple_redis_lib SHARED ${SRC_FILES})
 add_executable(simple_redis ${CWD_FILES} ${SRC_FILES})
 add_subdirectory(test)

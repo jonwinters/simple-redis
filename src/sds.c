@@ -22,8 +22,8 @@ char *sds_init_with_str(char *str) {
 }
 
 char *sds_init(int size) {
-    char *sds_str = malloc(sizeof(struct sds) + (size + 1) * sizeof(char));
-    struct sds *sds_str_ = sds_str;
+    char *sds_str = malloc(sizeof(sds) + (size + 1) * sizeof(char));
+    sds *sds_str_ = sds_str;
     sds_str_->len = 0;
     sds_str_->reserve = size;
     char *str = sds_str + sizeof(int) * 2;
@@ -31,8 +31,8 @@ char *sds_init(int size) {
     return str;
 }
 
-struct sds *convert_to_struct_ptr(char *str) {
-    return (struct sds *) (str - sizeof(int) * 2);
+sds *convert_to_struct_ptr(char *str) {
+    return (sds *) (str - sizeof(int) * 2);
 }
 
 int sds_len(char *str) {
@@ -66,6 +66,23 @@ char *sds_copy(char *src, char *target) {
     return target;
 }
 
-int test(int a){
-    return a;
+#ifdef GEN_SDS_DEMO
+
+void main() {
+
+    //in stack
+    sds s;
+    s.len = 1;
+    s.reserve = 2;
+
+    //in heap
+    sds *s_in_heap = (sds *) malloc(sizeof(sds) + 10 * sizeof(char));
+    s_in_heap->reserve = 0;
+    s_in_heap->len = 10;
+    strcpy(s_in_heap->str, "12456789\0");
+    printf("s_in_heap->reserve: %d\n", s_in_heap->reserve);
+    printf("s_in_heap->len: %d\n", s_in_heap->len);
+    printf("s_in_heap->str: %s\n", s_in_heap->str);
 }
+
+#endif

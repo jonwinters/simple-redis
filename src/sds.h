@@ -10,17 +10,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-struct sds {
+typedef struct sds {
     int reserve;// reserve heap space
     int len; // length of str
     char str[];
-};
+}sds;
 
 char *sds_init(int size);
 
 char *sds_init_with_str(char *str);
 
-struct sds *convert_to_struct_ptr(char *str);
+sds *convert_to_struct_ptr(char *str);
 
 int sds_len(char *str);
 
@@ -30,4 +30,3 @@ char *sds_copy(char *src, char *target);
 
 char *sds_to_pure_c_style_str(char *src);
 
-int test(int a);
