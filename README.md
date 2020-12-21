@@ -28,9 +28,9 @@ typedef struct sds {
 
 ![sds in heap](./image/sds_in_heap.png)
 
-* tip: 注意intel为小端序，都是从低地址开始读 往高地址走的，读者可以自行调试
-
-* 修改CmakeLists.txt代码如下，编译demo
+* tip: 注意作者使用的Mac的intel CPU为小端序，读数据都是从低地址开始的
+  
+* 读者可以自行调试，修改CmakeLists.txt代码如下，编译demo
 
 ```cmake
 #for generate demo
