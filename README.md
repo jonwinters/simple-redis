@@ -22,7 +22,7 @@ typedef struct sds {
 
 * 下图LLDB调试，可以看到结构体在内存中存储的位置都是连续的，也就是说保存了结构体中的str指针之后，
   通过str指针的偏移计算是可以得到整个结构体的指针以及结构体中其它成员变量的指针的，
-  这也是Redis里面sds指针实现依赖的一个特性
+  这也是Redis里面sds字符串实现依赖C语言的一个特性
 
 ![sds in stack](./image/sds_in_stack.png)
 
