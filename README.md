@@ -11,11 +11,11 @@
 ### SDS字符串的实现
 
 ```c 
-typedef struct sds {
+typedef struct SDS {
     int reserve;// reserve heap space
     int len; // length of str
     char str[];
-} sds;
+} SDS;
 ```
 
 * 此处struct sds使用了C语言的结构体特性，无论结构体是创建在栈上还是堆上 ，结构体的占据的内存空间都是连续的
@@ -24,9 +24,9 @@ typedef struct sds {
   通过str指针的偏移计算是可以得到整个结构体的指针以及结构体中其它成员变量的指针的，
   这也是Redis里面sds字符串实现依赖C语言的一个特性
 
-![sds in stack](./image/sds_in_stack.png)
+![SDS in stack](./image/sds_in_stack.png)
 
-![sds in heap](./image/sds_in_heap.png)
+![SDS in heap](./image/sds_in_heap.png)
 
 * tip: 注意作者使用的Mac的intel CPU为小端序，读数据都是从低地址开始的
   

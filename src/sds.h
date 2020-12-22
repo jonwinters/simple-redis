@@ -14,13 +14,13 @@ typedef struct sds {
     int reserve;// heap space
     int len; // length of str
     char str[];
-}sds;
+}SDS;
 
 char *sds_init(int size);
 
 char *sds_init_with_str(char *str);
 
-sds *convert_to_struct_ptr(char *str);
+SDS *convert_to_struct_ptr(char *str);
 
 int sds_len(char *str);
 

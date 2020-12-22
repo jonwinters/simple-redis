@@ -5,7 +5,7 @@
 #include "sds.h"
 
 /**
- * convert to pure c style str and free sds src space
+ * convert to pure c style str and free SDS src space
  * @param src
  * @return
  */
@@ -22,8 +22,8 @@ char *sds_init_with_str(char *str) {
 }
 
 char *sds_init(int size) {
-    char *sds_str = malloc(sizeof(sds) + (size + 1) * sizeof(char));
-    sds *sds_str_ = sds_str;
+    char *sds_str = malloc(sizeof(SDS) + (size + 1) * sizeof(char));
+    SDS *sds_str_ = sds_str;
     sds_str_->len = 0;
     sds_str_->reserve = size;
     char *str = sds_str + sizeof(int) * 2;
@@ -31,8 +31,8 @@ char *sds_init(int size) {
     return str;
 }
 
-sds *convert_to_struct_ptr(char *str) {
-    return (sds *) (str - sizeof(int) * 2);
+SDS *convert_to_struct_ptr(char *str) {
+    return (SDS *) (str - sizeof(int) * 2);
 }
 
 int sds_len(char *str) {
@@ -45,8 +45,8 @@ int sds_reserve(char *str) {
 
 /**
  * @param src  c-style str
- * @param target sds str
- * if sds-space is not enough to copy c-style str
+ * @param target SDS str
+ * if SDS-space is not enough to copy c-style str
  * return NULL
  * @return return copy
  */
@@ -69,12 +69,12 @@ char *sds_copy(char *src, char *target) {
 void main() {
 
     //in stack
-    sds s;
+    SDS s;
     s.len = 1;
     s.reserve = 2;
 
     //in heap
-    sds *s_in_heap = (sds *) malloc(sizeof(sds) + 10 * sizeof(char));
+    SDS *s_in_heap = (SDS *) malloc(sizeof(SDS) + 10 * sizeof(char));
     s_in_heap->reserve = 0;
     s_in_heap->len = 10;
     strcpy(s_in_heap->str, "12456789\0");
