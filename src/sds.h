@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 typedef struct sds {
-    int reserve;// reserve heap space
+    int reserve;// heap space
     int len; // length of str
     char str[];
 }sds;

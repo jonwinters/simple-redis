@@ -46,6 +46,8 @@ int sds_reserve(char *str) {
 /**
  * @param src  c-style str
  * @param target sds str
+ * if sds-space is not enough to copy c-style str
+ * return NULL
  * @return return copy
  */
 char *sds_copy(char *src, char *target) {
@@ -53,12 +55,8 @@ char *sds_copy(char *src, char *target) {
     int count = strlen(src);
     char *temp = src;
     if (sds_reserve(target) < count) {
-        //free previous ptr
-        free(convert_to_struct_ptr(target));
-        //expand heap space for src str
-        target = sds_init(count);
+        return NULL;
     }
-    temp = src;
     for (int i = 0; *temp != '\0'; temp++, i++) {
         target[i] = *temp;
     }
