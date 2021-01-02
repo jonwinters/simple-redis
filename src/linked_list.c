@@ -6,11 +6,11 @@
 #include <stdlib.h>
 #include <memory.h>
 
-void *add_first(linked_list *self, void *val) {
+void *add_first(LINKED_LIST *self, void *val) {
     if (self->tail == NULL && self->head == NULL) {
         return push(self, val);
     }
-    node *n = (node *) malloc(sizeof(node));
+    NODE *n = (NODE *) malloc(sizeof(NODE));
     n->val = val;
 
     self->head->prv = n;
@@ -19,7 +19,7 @@ void *add_first(linked_list *self, void *val) {
     return val;
 }
 
-void *add_last(linked_list *self, void *val) {
+void *add_last(LINKED_LIST *self, void *val) {
     return push(self, val);
 }
 
@@ -28,8 +28,8 @@ void *add_last(linked_list *self, void *val) {
  * @param self
  * @return
  */
-void *remove_first(linked_list *self) {
-    node * head = self->head;
+void *remove_first(LINKED_LIST *self) {
+    NODE * head = self->head;
     if (self->head == NULL){
         return NULL;
     }
@@ -53,7 +53,7 @@ void *remove_first(linked_list *self) {
  * @param self
  * @return
  */
-void *remove_last(linked_list *self) {
+void *remove_last(LINKED_LIST *self) {
     return pop(self);
 }
 
@@ -62,8 +62,8 @@ void *remove_last(linked_list *self) {
  * @param self
  * @return val
  */
-void *pop(linked_list *self) {
-    node *tail = self->tail;
+void *pop(LINKED_LIST *self) {
+    NODE *tail = self->tail;
     if (tail == NULL) {
         return NULL;
     }
@@ -89,8 +89,8 @@ void *pop(linked_list *self) {
  * @param val
  * @return val
  */
-void *push(linked_list *self, void *val) {
-    node *n = (node *) malloc(sizeof(node));
+void *push(LINKED_LIST *self, void *val) {
+    NODE *n = (NODE *) malloc(sizeof(NODE));
     n->val = val;
 
     if (self->head == NULL && self->tail == NULL) {
@@ -105,19 +105,19 @@ void *push(linked_list *self, void *val) {
     return val;
 }
 
-linked_list *init_linked_list() {
-    linked_list * ptr =  (linked_list *) malloc(sizeof(linked_list) * 1);
-    memset(ptr,0,sizeof(struct linked_list));
+LINKED_LIST *init_linked_list() {
+    LINKED_LIST * ptr =  (LINKED_LIST *) malloc(sizeof(LINKED_LIST) * 1);
+    memset(ptr,0,sizeof(struct LINKED_LIST));
     return ptr;
 }
 
 // public iterator
-linked_list_iterator *iterator(){
+LINKED_LIST_ITERATOR *iterator(){
     //TODO
     return NULL;
 }
 
-bool has_next(linked_list_iterator *self){
+bool has_next(LINKED_LIST_ITERATOR *self){
     //TODO
     return NULL;
 }

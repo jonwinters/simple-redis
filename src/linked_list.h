@@ -12,43 +12,43 @@
 //double ended queue
 
 typedef struct node {
-    struct node *next;
-    struct node *prv;
+    struct NODE *next;
+    struct NODE *prv;
     void *val;
-} node;
+} NODE;
 
 typedef struct linked_list {
     //private
-    node *head;
-    node *tail;
-} linked_list;
+    NODE *head;
+    NODE *tail;
+} LINKED_LIST;
 
 typedef struct linked_list_iterator {
     //private
-    linked_list *linked_list;
-    node * current;
+    LINKED_LIST *linked_list;
+    NODE * current;
 
-} linked_list_iterator;
+} LINKED_LIST_ITERATOR;
 
 
 //public
 
-void *add_first(linked_list * self,void *val);
+void *add_first(LINKED_LIST * self, void *val);
 
-void *add_last(linked_list * self,void *val);
+void *add_last(LINKED_LIST * self, void *val);
 
-void *remove_first(linked_list * self);
+void *remove_first(LINKED_LIST * self);
 
-void *remove_last(linked_list * self);
+void *remove_last(LINKED_LIST * self);
 
-void * pop(linked_list * self);
+void * pop(LINKED_LIST * self);
 
-void * push(linked_list * self,void * val);
+void * push(LINKED_LIST * self, void * val);
 
-linked_list *init_linked_list();
+LINKED_LIST *init_linked_list();
 
 // public iterator
 
-linked_list_iterator * iterator();
+LINKED_LIST_ITERATOR * iterator();
 
-bool has_next(linked_list_iterator * self);
+bool has_next(LINKED_LIST_ITERATOR * self);

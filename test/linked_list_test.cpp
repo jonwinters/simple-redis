@@ -10,7 +10,7 @@ extern "C" {
 
 #define LIST list
 
-#define INIT_LIST() linked_list *LIST = init_linked_list();\
+#define INIT_LIST() LINKED_LIST *LIST = init_linked_list();\
 int obj_1 = 1;\
 int obj_2 = 2;\
 int obj_3 = 3;                                     \
@@ -18,7 +18,7 @@ int obj_3 = 3;                                     \
 #define FREE_LIST() free(LIST);
 
 
-TEST(linked_list, add_last_and_pop) {
+TEST(LINKED_LIST, add_last_and_pop) {
     INIT_LIST()
 
     add_last(LIST, &obj_1);
@@ -32,7 +32,7 @@ TEST(linked_list, add_last_and_pop) {
     FREE_LIST()
 }
 
-TEST(linked_list, add_last_and_remove_first) {
+TEST(LINKED_LIST, add_last_and_remove_first) {
     INIT_LIST()
 
     add_last(LIST, &obj_1);
@@ -46,7 +46,7 @@ TEST(linked_list, add_last_and_remove_first) {
     FREE_LIST()
 }
 
-TEST(linked_list, add_first_and_pop) {
+TEST(LINKED_LIST, add_first_and_pop) {
     INIT_LIST()
 
     add_first(LIST, &obj_1);
@@ -60,7 +60,7 @@ TEST(linked_list, add_first_and_pop) {
     FREE_LIST()
 }
 
-TEST(linked_list, add_first_and_remove_first) {
+TEST(LINKED_LIST, add_first_and_remove_first) {
     INIT_LIST()
 
     add_first(LIST, &obj_1);

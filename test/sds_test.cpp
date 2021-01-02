@@ -6,7 +6,7 @@
 extern "C"{
 #include "sds.h"
 }
-TEST(sds, test)
+TEST(SDS, test)
 {
     EXPECT_STREQ(sds_init_with_str("test"),"test");
 }
