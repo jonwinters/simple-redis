@@ -9,7 +9,7 @@ find_package(Threads REQUIRED)
 set(CMAKE_CXX_STANDARD 11)
 enable_language(CXX)
 # aux_source_directory(. TEST_FILES)
-add_executable(tests sds_test.cpp)
+add_executable(tests sds_test.cpp linked_list_test.cpp)
 
 set_target_properties(tests PROPERTIES LINKER_LANGUAGE CXX)
 target_link_libraries(tests simple_redis_lib ${GTEST_BOTH_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
