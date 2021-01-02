@@ -29,8 +29,8 @@ void *add_last(LINKED_LIST *self, void *val) {
  * @return
  */
 void *remove_first(LINKED_LIST *self) {
-    NODE * head = self->head;
-    if (self->head == NULL){
+    NODE *head = self->head;
+    if (self->head == NULL) {
         return NULL;
     }
 
@@ -106,18 +106,18 @@ void *push(LINKED_LIST *self, void *val) {
 }
 
 LINKED_LIST *init_linked_list() {
-    LINKED_LIST * ptr =  (LINKED_LIST *) malloc(sizeof(LINKED_LIST) * 1);
-    memset(ptr,0,sizeof(struct LINKED_LIST));
+    LINKED_LIST *ptr = (LINKED_LIST *) malloc(sizeof(LINKED_LIST) * 1);
+    memset(ptr, 0, sizeof(LINKED_LIST));
     return ptr;
 }
 
 // public iterator
-LINKED_LIST_ITERATOR *iterator(){
+LINKED_LIST_ITERATOR *iterator(LINKED_LIST *self) {
     //TODO
     return NULL;
 }
 
-bool has_next(LINKED_LIST_ITERATOR *self){
+bool has_next(LINKED_LIST_ITERATOR *self) {
     //TODO
     return NULL;
 }

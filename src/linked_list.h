@@ -49,6 +49,6 @@ LINKED_LIST *init_linked_list();
 
 // public iterator
 
-LINKED_LIST_ITERATOR * iterator();
+LINKED_LIST_ITERATOR * iterator(LINKED_LIST * self);
 
 bool has_next(LINKED_LIST_ITERATOR * self);
